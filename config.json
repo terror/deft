@@ -1,0 +1,19 @@
+{
+    "twitter": {
+        "accounts": ["elonmusk", "rorret"]
+    },
+    "currencies": {
+        "dogecoin": {
+            "symbol": "DOGEBUSD",
+            "quantity": "100",
+            "limitPrice": "0.08",
+            "keywords": ["DOGE", "Dogecoin"]
+        },
+        "ethereum": {
+            "symbol": "ETHBUSD",
+            "quantity": "0.1",
+            "limitPrice": "1800",
+            "keywords": ["ETH", "Ethereum"]
+        }
+    }
+}
