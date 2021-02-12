@@ -39,6 +39,7 @@ def fetch_tweets(users: List[str], keywords: List[str]) -> dict:
 
 
 # keeps a tweet if a keyword is present
+# todo: make this fast
 def sanitize_tweets(tweets: List[str], keywords: List[str]) -> List[str]:
     ret = []
     for tweet in tweets:
@@ -50,6 +51,7 @@ def sanitize_tweets(tweets: List[str], keywords: List[str]) -> List[str]:
     return ret
 
 
+# gcp ftw
 def sentiment_analysis():
     client, config, ret = language_v1.LanguageServiceClient(), get_config(), []
 
@@ -62,6 +64,7 @@ def sentiment_analysis():
     d = fetch_tweets(config["twitter"]["accounts"], keywords)
     for user_id, tweets in d.items():
         for tweet in tweets:
+            tweet_id = tweet["id"]
             text = u"{}".format(tweet["text"])
 
             doc = language_v1.Document(
@@ -78,5 +81,5 @@ def sentiment_analysis():
                 sent.score, sent.magnitude))
             """
 
-            ret.append((text, sent.score, sent.magnitude))
+            ret.append((tweet_id, text, sent.score, sent.magnitude))
     return ret

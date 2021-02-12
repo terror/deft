@@ -6,7 +6,6 @@ name = "pypi"
 [packages]
 requests = "*"
 python-binance = "*"
-typer = "*"
 python-dotenv = "*"
 google-cloud-language = "*"
 

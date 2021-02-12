@@ -19,5 +19,4 @@ class Client:
 
     # sell crypto at limit price
     def sell(self, symbol: str, quantity: float, price: str):
-        self.client.order.limit_sell(
-            symbol=symbol, quantity=quantity, price=price)
+        self.client.order.limit_sell(symbol=symbol, quantity=quantity, price=price)

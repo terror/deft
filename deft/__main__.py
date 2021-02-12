@@ -1,27 +1,28 @@
-import typer
 import time
+import argparse
 from client import Client
-
-app = typer.Typer()
-client = Client()
+from tweets import sentiment_analysis
 
 
-@app.command()
-def hello(name: str):
-    typer.echo("Hello {}".format(name))
+def main():
+    client = Client()
 
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--run", help="run the program, making real trades", action="store_true"
+    )
+    parser.add_argument(
+        "--test", help="run the program in test mode", action="store_true"
+    )
 
-@app.command()
-def bye(name: str):
-    typer.echo("Bye! {}".format(name))
+    args = parser.parse_args()
 
+    if args.test:
+        print("test")
 
-@app.command()
-def run():
-    while True:
-        time.sleep(10)
-        print("hello world!")
+    if args.run:
+        print("run")
 
 
 if __name__ == "__main__":
-    app()
+    main()
